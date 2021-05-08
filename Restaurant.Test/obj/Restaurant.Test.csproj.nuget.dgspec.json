@@ -1,38 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Repos\\energy-ogre-restaurant-project\\Restaurant\\Restaurant.Test\\Restaurant.Test.csproj": {}
+    "/Users/efritts/Documents/Repos/restaurant_picker/Restaurant.Test/Restaurant.Test.csproj": {}
   },
   "projects": {
-    "D:\\Repos\\energy-ogre-restaurant-project\\Restaurant\\Restaurant.Test\\Restaurant.Test.csproj": {
+    "/Users/efritts/Documents/Repos/restaurant_picker/Restaurant.Test/Restaurant.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Repos\\energy-ogre-restaurant-project\\Restaurant\\Restaurant.Test\\Restaurant.Test.csproj",
+        "projectUniqueName": "/Users/efritts/Documents/Repos/restaurant_picker/Restaurant.Test/Restaurant.Test.csproj",
         "projectName": "Restaurant.Test",
-        "projectPath": "D:\\Repos\\energy-ogre-restaurant-project\\Restaurant\\Restaurant.Test\\Restaurant.Test.csproj",
-        "packagesPath": "C:\\Users\\ericf\\.nuget\\packages\\",
-        "outputPath": "D:\\Repos\\energy-ogre-restaurant-project\\Restaurant\\Restaurant.Test\\obj\\",
+        "projectPath": "/Users/efritts/Documents/Repos/restaurant_picker/Restaurant.Test/Restaurant.Test.csproj",
+        "packagesPath": "/Users/efritts/.nuget/packages/",
+        "outputPath": "/Users/efritts/Documents/Repos/restaurant_picker/Restaurant.Test/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ericf\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/efritts/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\Repos\\energy-ogre-restaurant-project\\Restaurant\\Restaurant\\Restaurant.csproj": {
-                "projectPath": "D:\\Repos\\energy-ogre-restaurant-project\\Restaurant\\Restaurant\\Restaurant.csproj"
+              "/Users/efritts/Documents/Repos/restaurant_picker/Restaurant/Restaurant.csproj": {
+                "projectPath": "/Users/efritts/Documents/Repos/restaurant_picker/Restaurant/Restaurant.csproj"
               }
             }
           }
@@ -79,31 +74,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.202/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Repos\\energy-ogre-restaurant-project\\Restaurant\\Restaurant\\Restaurant.csproj": {
+    "/Users/efritts/Documents/Repos/restaurant_picker/Restaurant/Restaurant.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Repos\\energy-ogre-restaurant-project\\Restaurant\\Restaurant\\Restaurant.csproj",
+        "projectUniqueName": "/Users/efritts/Documents/Repos/restaurant_picker/Restaurant/Restaurant.csproj",
         "projectName": "Restaurant",
-        "projectPath": "D:\\Repos\\energy-ogre-restaurant-project\\Restaurant\\Restaurant\\Restaurant.csproj",
-        "packagesPath": "C:\\Users\\ericf\\.nuget\\packages\\",
-        "outputPath": "D:\\Repos\\energy-ogre-restaurant-project\\Restaurant\\Restaurant\\obj\\",
+        "projectPath": "/Users/efritts/Documents/Repos/restaurant_picker/Restaurant/Restaurant.csproj",
+        "packagesPath": "/Users/efritts/.nuget/packages/",
+        "outputPath": "/Users/efritts/Documents/Repos/restaurant_picker/Restaurant/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ericf\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/efritts/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -136,7 +126,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.202/RuntimeIdentifierGraph.json"
         }
       }
     }

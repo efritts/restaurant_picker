@@ -91,24 +91,56 @@ namespace Restaurant
              */
 
             string[] rs = items.Split(',');
-
             List<int> restList = new List<int>();
+
 
             //  1. Search through _restaurants and make list of places which have all items requested
 
-            
-            
+            foreach (Restaurant restaurant in _restaurants)
+            {
+                List<string> concat = new List<string>();
+                int tally = 0;
+
+                foreach (KeyValuePair<string, decimal> entry in restaurant.Menu)
+                {
+                    string[] s = entry.Key.ToString().Split(',');
+                    foreach (string str in s)
+                    {
+                        concat.Add(str);
+                    }
+                }
+                foreach (var item in rs)
+                {
+                    if (concat.Contains<string>(item)) 
+                    {
+                        tally++;
+                    }
+                }
+                if (tally == rs.Length)
+                {
+                    restList.Add(restaurant.RestaurantId);
+                }
+            }
+
+
+
+            foreach (int rest in restList)
+            {
+                Console.WriteLine(rest);
+
+            }
+
             //  2. Search through list and find cheapest combo of all items per restaurant
 
             //  3. Return cheapest
 
 
-           
 
-           
-           
 
-           
+
+
+
+
             return new Tuple<int, decimal>(0, 0);
         }
 
