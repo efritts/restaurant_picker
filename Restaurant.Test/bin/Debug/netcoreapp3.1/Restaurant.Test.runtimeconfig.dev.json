@@ -1,8 +1,0 @@
-{
-  "runtimeOptions": {
-    "additionalProbingPaths": [
-      "/Users/efritts/.dotnet/store/|arch|/|tfm|",
-      "/Users/efritts/.nuget/packages"
-    ]
-  }
-}
