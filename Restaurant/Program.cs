@@ -132,6 +132,30 @@ namespace Restaurant
 
             //  2. Search through list and find cheapest combo of all items per restaurant
 
+            if(restList.Count() == 0)
+            {
+                return null;
+            }
+            List<KeyValuePair<string, decimal>> menuList = new List<KeyValuePair<string, decimal>>();
+            foreach (int index in restList)
+            {
+                foreach (KeyValuePair<string, decimal> entry in _restaurants[index - 1].Menu)
+                {
+                    foreach (var item in rs)
+                    {
+                        if (entry.Key.Contains(item))
+                        {
+                            menuList.Add(entry);
+                        }
+                    }
+                }
+                Console.WriteLine(menuList.ToList().ToString());
+                Console.WriteLine(menuList.Count());
+
+                menuList.Clear();
+            }
+
+
             //  3. Return cheapest
 
 
