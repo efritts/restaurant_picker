@@ -137,6 +137,7 @@ namespace Restaurant
                 return null;
             }
             List<KeyValuePair<string, decimal>> menuList = new List<KeyValuePair<string, decimal>>();
+            List<KeyValuePair<int, List<KeyValuePair<string, decimal>>>> associations = new List<KeyValuePair<int, List<KeyValuePair<string, decimal>>>>();
             foreach (int index in restList)
             {
                 foreach (KeyValuePair<string, decimal> entry in _restaurants[index - 1].Menu)
@@ -145,13 +146,18 @@ namespace Restaurant
                     {
                         if (entry.Key.Contains(item))
                         {
-                            menuList.Add(entry);
+                            if (!menuList.Contains(entry))
+                            {
+                                menuList.Add(entry);
+                                
+                            }
                         }
                     }
                 }
-                Console.WriteLine(menuList.Count());
+                associations.Add(new KeyValuePair<int, List<KeyValuePair<string, decimal>>>(index, menuList));
 
-                Combin
+                Console.WriteLine(associations.Count());
+
 
                 menuList.Clear();
             }
