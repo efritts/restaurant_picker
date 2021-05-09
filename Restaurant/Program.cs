@@ -149,8 +149,9 @@ namespace Restaurant
                         }
                     }
                 }
-                Console.WriteLine(menuList.ToList().ToString());
                 Console.WriteLine(menuList.Count());
+
+                Combin
 
                 menuList.Clear();
             }
