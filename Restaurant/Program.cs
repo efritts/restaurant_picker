@@ -136,31 +136,23 @@ namespace Restaurant
             {
                 return null;
             }
-            List<KeyValuePair<string, decimal>> menuList = new List<KeyValuePair<string, decimal>>();
-            List<KeyValuePair<int, List<KeyValuePair<string, decimal>>>> associations = new List<KeyValuePair<int, List<KeyValuePair<string, decimal>>>>();
-            foreach (int index in restList)
+            List<Restaurant> temp = _restaurants.ToList();
+            
+            foreach (Restaurant rest in temp.ToList()) 
             {
-                foreach (KeyValuePair<string, decimal> entry in _restaurants[index - 1].Menu)
+                if (!restList.Contains(rest.RestaurantId))
                 {
-                    foreach (var item in rs)
-                    {
-                        if (entry.Key.Contains(item))
-                        {
-                            if (!menuList.Contains(entry))
-                            {
-                                menuList.Add(entry);
-                                
-                            }
-                        }
-                    }
+                    temp.RemoveAll(temp => temp.RestaurantId == rest.RestaurantId );
                 }
-                associations.Add(new KeyValuePair<int, List<KeyValuePair<string, decimal>>>(index, menuList));
-
-                Console.WriteLine(associations.Count());
-
-
-                menuList.Clear();
             }
+
+
+         
+
+      
+       
+
+            Console.WriteLine(temp.Count());
 
 
             //  3. Return cheapest
@@ -174,6 +166,8 @@ namespace Restaurant
 
             return new Tuple<int, decimal>(0, 0);
         }
+
+        
 
         #endregion
     }
