@@ -96,6 +96,11 @@ namespace Restaurant
 
             //  1. Search through _restaurants and make list of places which have all items requested
 
+            /*
+             * The following method generates an int list of all restaurant ids which have all
+             * requested items on the menu
+             */
+
             foreach (Restaurant restaurant in _restaurants)
             {
                 List<string> concat = new List<string>();
@@ -124,13 +129,15 @@ namespace Restaurant
 
 
 
-            foreach (int rest in restList)
-            {
-                Console.WriteLine(rest);
-
-            }
-
             //  2. Search through list and find cheapest combo of all items per restaurant
+
+            /*
+             * The following method clones the _restaurants list, and removes all entries which are not 
+             * listed in the int list restList.
+             * 
+             * This leaves a new list, temp, which only includes Restaurant objects which contain all requested
+             * items on the menu
+             */
 
             if(restList.Count() == 0)
             {
@@ -144,31 +151,90 @@ namespace Restaurant
                 {
                     temp.RemoveAll(temp => temp.RestaurantId == rest.RestaurantId );
                 }
+                
+
             }
 
+            foreach (Restaurant rest in temp)
+            {
+                Console.WriteLine(rest.RestaurantId);
+                Console.WriteLine(rest.Menu.Count());
+            }
+            List<string> set = new List<string>();
 
-         
+            decimal price = 999;
+            int id = 0;
 
-      
-       
+            foreach (Restaurant rest in temp.ToList())
+            {
+                foreach (var menu in rest.Menu)
+                {
+                    foreach(var s in rs)
+                    {
+                        if (menu.Key.Contains(s))
+                        {
+                            set.Add(menu.Value + "," + menu.Key); // creates a list of menu items
+                        }
+                    }
+                }
+                List<string> distinct = new List<string>(set.Distinct());
+                foreach(var item in distinct)
+                {
+                    Console.WriteLine("restId: " + rest.RestaurantId + " " + item);
+                }
+                var powerSet = GetPowerSet(distinct); // creates a powerset of the list of menu items
 
-            Console.WriteLine(temp.Count());
+                foreach (var list in powerSet) // search the powerset for a line which contains all items
+                {
 
+                    string str = String.Join(',', list.ToArray());
+                    bool contains = rs.All(s=> str.Contains(s));
+
+                    //foreach (var s in rs)
+                    //{
+                    //    if (!str.Contains(s))
+                    //    {
+                    //        contains = false;
+                    //    }
+                    //}
+                    if (contains) // parse the price, and if it's less than current min price, swap 'em
+                    {
+                        string[] str2 = str.Split(',');
+                        decimal tempPrice = 0;
+                        decimal temp2 = 0;
+                        foreach (var index in str2)
+                        {
+                            if (decimal.TryParse(index, out tempPrice))
+                            {
+                                temp2 += decimal.Parse(index);
+                            }
+                        }
+                        if (temp2 < price)
+                        {
+                            price = temp2;
+                            id = rest.RestaurantId;
+                        }
+                    }
+                }
+            }
 
             //  3. Return cheapest
 
-
-
-
-
-
-
-
-            return new Tuple<int, decimal>(0, 0);
+            return new Tuple<int, decimal>(id, price);
         }
 
-        
-
+        /*
+         * The below method was taken from discussions on MSDN.com related to LINQ power set
+         * generation, original author unknown.
+         */
+        private IEnumerable<IEnumerable<T>> GetPowerSet<T>(List<T> list)
+        {
+            return from m in Enumerable.Range(0, 1 << list.Count)
+                   select
+                     from i in Enumerable.Range(0, list.Count)
+                     where (m & (1 << i)) != 0
+                     select list[i];
+        }
         #endregion
     }
 }
