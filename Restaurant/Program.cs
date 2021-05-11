@@ -155,14 +155,15 @@ namespace Restaurant
 
             }
 
-          
-            List<string> set = new List<string>();
+
+            List<string> set;
 
             decimal price = 999;
             int id = 0;
 
             foreach (Restaurant rest in temp.ToList())
             {
+                set = new List<string>();
                 foreach (var menu in rest.Menu)
                 {
                     foreach(var s in rs)
@@ -174,48 +175,48 @@ namespace Restaurant
                     }
                 }
                 List<string> distinct = new List<string>(set.Distinct());
-                foreach(var item in distinct)
+                foreach(string item in distinct)
                 {
-                    Console.WriteLine(distinct);
+                    Console.WriteLine("RestID: " + rest.RestaurantId + " | " + item);
                 }
 
-                //Console.WriteLine("filtered: " + distinct.Count() + "\t || non-filtered: " + set.Count());
-                
-                //var powerSet = GetPowerSet(distinct); // creates a powerset of the list of menu items
+                Console.WriteLine("filtered: " + distinct.Count() + "\t || non-filtered: " + set.Count());
 
-                //Console.WriteLine("Powerset size: " + powerSet.Count());
+                var powerSet = GetPowerSet(distinct); // creates a powerset of the list of menu items
 
-                //foreach (var list in powerSet) // search the powerset for a line which contains all items
-                //{ 
+                Console.WriteLine("Powerset size: " + powerSet.Count());
 
-                //    string str = String.Join(',', list.ToArray());
-                //    bool contains = true;
-                //    foreach (var s in rs)
-                //    {
-                //        if (!str.Contains(s))
-                //        {
-                //            contains = false;
-                //        }
-                //    }
-                //    if (contains) // parse the price, and if it's less than current min price, swap 'em
-                //    {
-                //        string[] str2 = str.Split(',');
-                //        decimal tempPrice = 0;
-                //        decimal temp2 = 0;
-                //        foreach (string index in str2)
-                //        {
-                //            if (decimal.TryParse(index, out tempPrice))
-                //            {
-                //                temp2 += decimal.Parse(index);
-                //            }
-                //        }
-                //        if (temp2 < price)
-                //        {
-                //            price = temp2;
-                //            id = rest.RestaurantId;
-                //        }
-                //    }
-                //}
+                foreach (var list in powerSet) // search the powerset for a line which contains all items
+                {
+
+                    string str = String.Join(',', list.ToArray());
+                    bool contains = true;
+                    foreach (var s in rs)
+                    {
+                        if (!str.Contains(s))
+                        {
+                            contains = false;
+                        }
+                    }
+                    if (contains) // parse the price, and if it's less than current min price, swap 'em
+                    {
+                        string[] str2 = str.Split(',');
+                        decimal tempPrice = 0;
+                        decimal temp2 = 0;
+                        foreach (string index in str2)
+                        {
+                            if (decimal.TryParse(index, out tempPrice))
+                            {
+                                temp2 += decimal.Parse(index);
+                            }
+                        }
+                        if (temp2 < price)
+                        {
+                            price = temp2;
+                            id = rest.RestaurantId;
+                        }
+                    }
+                }
             }
 
             //  3. Return cheapest
